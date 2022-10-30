@@ -1,0 +1,29 @@
+<section id="employee-<%= @employee.id%>">
+<p> Name: <%= @employee.name %></p>
+<p> Level: <%= @employee.level %></p>
+<p> Department: <%= @employee.department[:name] %></p>
+<% @employee.desc_employee_tickets.each do |ticket| %></p>
+<p> Ticket: <%= ticket.subject %> Age: <%= ticket.age %></p>
+<% end %>
+</section>
+<br>
+
+
+<section id="oldestticket-<%= @employee.id%>">
+<p> Oldest Ticket: <%= @employee.desc_employee_tickets.first.subject %></p>
+</section>
+<br>
+
+
+<%= form_with url:"/employees/#{@employee.id}/tickets", method: :patch, local: true do |form| %>
+<p>Add a new ticket:</p>
+  <%= form.number_field :id %>
+  <%= form.label :ticket_id, "Ticket ID" %>
+  <%= form.submit "Submit" %>
+<% end %>
+
+
+  
+
+ 
+

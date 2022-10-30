@@ -1,0 +1,14 @@
+<h1> Store Details </h1>
+
+<h3> Departments: </h3>
+<% @departments.each do |department| %>
+<section id="department-<%= department.id %>">
+<p> Department: <%= department.name %> </p>
+<p> Floor: <%= department.floor %> </p>
+<p> Dept. Employees: </p>
+<% department.employees.each do |employee| %>
+<p><%= employee.name %></p>
+<% end %>
+</section>
+<br>
+<% end %>
